@@ -1,0 +1,3 @@
+type BookProps = {
+    book: string;
+};
