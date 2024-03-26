@@ -1,51 +1,43 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const MyForm = () => {
-  // State to manage form inputs
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: ""
-  });
+  const [firstName, setFirstName] = React.useState("");
+  const [lastName, setLastName] = useState("");
 
-  // Function to handle form submission
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    // Here you can perform actions with form data, like sending it to a server
-    console.log("Form submitted with data:", formData);
+  const [myForm, setMyForm] = useState({ bla: 1, hello: 2 });
+
+  const saveFields = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setMyForm((previous) => ({
+      ...previous,
+      [event.target.name]: event.target.value,
+    }));
   };
 
-  // Function to handle changes in form inputs
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+  useEffect(() => {
+    console.log(myForm);
+  }, [myForm]);
+
+  const submitForm = (event: React.FormEvent) => {
+    event.preventDefault();
+
+    console.log({ myForm });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="firstName">First Name:</label>
-        <input
-          type="text"
-          id="firstName"
-          name="firstName"
-          value={formData.firstName}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="lastName">Last Name:</label>
-        <input
-          type="text"
-          id="lastName"
-          name="lastName"
-          value={formData.lastName}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <button type="submit">Submit</button>
+    <form onSubmit={submitForm}>
+      <label htmlFor="firstName">First name</label>
+      <input
+        name="firstName"
+        // onChange={(event) => setFirstName(event.target.value)}
+        onChange={saveFields}
+      ></input>
+      <label htmlFor="lastName">Last name</label>
+      <input
+        name="lastName"
+        // onChange={(e) => setLastName(e.target.value)}
+        onChange={saveFields}
+      ></input>
+      <button>Submit</button>
     </form>
   );
 };

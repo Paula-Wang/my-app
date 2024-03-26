@@ -4,15 +4,18 @@ import Counter from './components/Counter';
 import PropDrilling from './components/PropDrilling';
 import Context from './components/Context';
 import MyForm from './components/MyForm';
-
+import Book from './components/Book';
+import FruitList from './components/FruitList';
 
 function App() {
   return (
     <div>
-      <Counter initialCount={5} />
+      {/* <Counter initialCount={5} />
       <PropDrilling />
       <Context />
-      <MyForm />
+      <MyForm /> */}
+      <Book />
+      <FruitList />
     </div>
   );
 }
