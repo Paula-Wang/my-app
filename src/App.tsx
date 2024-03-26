@@ -5,7 +5,8 @@ import PropDrilling from './components/PropDrilling';
 import Context from './components/Context';
 import MyForm from './components/MyForm';
 import Book from './components/Book';
-import FruitList from './components/FruitList';
+import GooseList from './components/GooseList';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
       <Context />
       <MyForm /> */}
       <Book />
-      <FruitList />
+      <GooseList />
+      <Login />
     </div>
   );
 }
