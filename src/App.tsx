@@ -7,6 +7,7 @@ import MyForm from './components/MyForm';
 import Book from './components/Book';
 import GooseList from './components/GooseList';
 import Login from './components/Login';
+import Signup from './components/Signup';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Book />
       <GooseList />
       <Login />
+      <Signup />
     </div>
   );
 }
